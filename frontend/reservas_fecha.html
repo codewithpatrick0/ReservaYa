@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecciona una fecha - La Rotonda</title>
+</head>
+<body>
+    <header>
+        <h1>La Rotonda</h1>
+        <h2>Panel de Reservas</h2>
+    </header>
+    <main>
+        <section class="calendario">
+            <h3>Selecciona una fecha</h3>
+            <table>
+                <caption>Setiembre 2026</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Lun</th>
+                        <th scope="col">Mar</th>
+                        <th scope="col">Mié</th>
+                        <th scope="col">Jue</th>
+                        <th scope="col">Vie</th>
+                        <th scope="col">Sáb</th>
+                        <th scope="col">Dom</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+                    </tr>
+                    <tr>
+                        <td>7</td><td>8</td><td class="hoy">9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+                    </tr>
+                    <tr>
+                        <td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+                    </tr>
+                    <tr>
+                        <td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td>
+                    </tr>
+                    <tr>
+                        <td>28</td><td>29</td><td>30</td><td></td><td></td><td></td><td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="horarios">
+    <h3>Horarios — 9 de setiembre</h3>
+    <form action="">
+        <table>
+            <caption>Horarios disponibles — Cancha fútbol 5</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Seleccionar</th>
+                    <th scope="col">Horario</th>
+                    <th scope="col">Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" id="h1" name="horario" value="08:00-09:00"></td>
+                    <th scope="row"><label for="h1">08:00 - 09:00</label></th>
+                    <td class="disponible">Disponible</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="h2" name="horario" value="09:00-10:00" disabled></td>
+                    <th scope="row"><label for="h2">09:00 - 10:00</label></th>
+                    <td class="ocupado">Ocupado</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="h3" name="horario" value="10:00-11:00"></td>
+                    <th scope="row"><label for="h3">10:00 - 11:00</label></th>
+                    <td class="disponible">Disponible</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit">Reservar</button>
+    </form>
+</section>
+    </main>
+</body>
+</html>
