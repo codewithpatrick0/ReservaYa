@@ -1,0 +1,100 @@
+main.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+}
+
+.container-tipo-inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+
+.container-tipo-inicio ul {
+    list-style-type: none;
+    display: flex;
+    gap: 150px;
+}
+
+.icono-inicio {
+    width: 200px;
+    height: 200px;
+}
+
+.container-tipo-inicio a {
+    display: block;
+    border: 5px solid rgb(53, 135, 197);
+    padding: 50px;
+    border-radius: 15px;
+}
+
+.container-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 5px solid rgb(53, 135, 197);
+    border-radius: 10px;
+}
+
+.container-login form {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+/* Paleta deportiva */
+:root {
+    --azul: rgb(53, 135, 197);
+    --azul-oscuro: rgb(16, 52, 84);
+    --verde: rgb(30, 160, 90);
+    --naranja: rgb(235, 125, 25);
+    --rojo: rgb(200, 60, 60);
+    --fondo: rgb(222, 238, 249);
+}
+
+body {
+    background-color: var(--fondo);
+    color: var(--azul-oscuro);
+}
+
+h1 {
+    color: var(--azul);
+}
+
+h3, h4, caption {
+    color: var(--azul);
+}
+
+a {
+    color: var(--azul);
+}
+
+.boton-reservas {
+    color: var(--naranja);
+}
+
+button, input[type="submit"] {
+    background-color: var(--azul);
+    color: rgb(255, 255, 255);
+    border-color: var(--azul-oscuro);
+}
+
+th {
+    color: var(--azul-oscuro);
+}
+
+.hoy {
+    color: var(--naranja);
+}
+
+.disponible {
+    color: var(--verde);
+}
+
+.ocupado {
+    color: var(--rojo);
+}
