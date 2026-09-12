@@ -98,3 +98,20 @@ th {
 .ocupado {
     color: var(--rojo);
 }
+
+.container-canchas {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 50vh;
+    gap: 50px;
+}
+
+.container-canchas article {
+    height: 200px;
+    width: 200px;
+    border: solid 5px var(--azul);
+    border-radius: 10%;
+    padding: 15px;
+}
