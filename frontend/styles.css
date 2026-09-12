@@ -1,4 +1,4 @@
-main.login{
+main.login, main.datos {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +31,7 @@ main.login{
     border-radius: 15px;
 }
 
-.container-login {
+.container-login, .container-datos {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,7 +41,7 @@ main.login{
     border-radius: 10px;
 }
 
-.container-login form {
+.container-login form, .container-datos form {
     display: flex;
     gap: 10px;
     flex-direction: column;
