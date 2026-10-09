@@ -42,3 +42,32 @@ if (form) {
         }
     });
 }
+
+// Seleccionar dia (Clickeable)
+
+const clickeable = document.querySelector('.calendario')
+
+if (clickeable) {
+    const mesActual = clickeable.querySelector('caption');
+
+    clickeable.addEventListener('click', function (event) {
+
+        //currentTarget seria clickeable -> <section class="calendario"> (elemento que tiene el listener)
+        // target es el elemento exacto donse hizo click, entonces <td> 
+        // tagName devuele el nombre de la etiqueta, en este caso: 'TD'
+        if (event.target.tagName === 'TD') {
+
+            if (event.target.textContent.trim() != '') {
+                const diaSeleccionadoAnterior = document.querySelector('.dia-seleccionado');
+
+                if (diaSeleccionadoAnterior) {
+                    diaSeleccionadoAnterior.classList.remove('dia-seleccionado');
+                }
+
+                event.target.classList.add('dia-seleccionado');
+                const fecha = document.querySelector(".horarios h3");
+                fecha.textContent = "Horarios — " + event.target.textContent + " de " + mesActual.textContent;
+            }
+        }
+    })
+}
