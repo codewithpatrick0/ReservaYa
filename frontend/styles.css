@@ -59,6 +59,11 @@ main.login, main.datos {
 body {
     background-color: var(--fondo);
     color: var(--azul-oscuro);
+    font-family: "Nunito", "Segoe UI", sans-serif;
+}
+
+input, button {
+    font-family: inherit;
 }
 
 h1 {
