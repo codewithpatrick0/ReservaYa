@@ -1,4 +1,5 @@
-
+let savedDate;
+let savedSlots = [];
 //Const en js es una variable constante
 // Contiene un objeto, {Clave: "valor"}
 const courtNames = {
@@ -18,7 +19,7 @@ const court = params.get("court");
 // Obtiene valor del objeto courtNames según la clave extraida de .get
 const courtName = courtNames[court] || "Cancha de fútbol general";
 
-// Busca sección de html 'horarios' y caption dentro de él, lo extrae para trabajrlo en js
+// Busca sección de html 'slots' y caption dentro de él, lo extrae para trabajrlo en js
 const caption = document.querySelector(".horarios caption");
 
 if (caption) {
@@ -33,41 +34,69 @@ if (form) {
 
         // Guarda en la variable checked el o los input seleccionados y marcados
         const checked = form.querySelectorAll("input[name='horario']:checked");
-
+        savedSlots = Array.from(checked, c => c.value)
         //Si no se marcó lanza una alerta de seleccionar horario
         if (checked.length === 0) {
             // Evita que se recargue la página en el evento
             event.preventDefault();
             alert("Selecciona al menos un horario.");
+        } else {
+            sessionStorage.setItem('slots', JSON.stringify(savedSlots))
+            sessionStorage.setItem('court', courtName)
         }
     });
 }
 
 // Seleccionar dia (Clickeable)
 
-const clickeable = document.querySelector('.calendario')
+const calendar = document.querySelector('.calendario')
 
-if (clickeable) {
-    const mesActual = clickeable.querySelector('caption');
+if (calendar) {
+    const currentMonth = calendar.querySelector('caption');
 
-    clickeable.addEventListener('click', function (event) {
+    calendar.addEventListener('click', function (event) {
 
-        //currentTarget seria clickeable -> <section class="calendario"> (elemento que tiene el listener)
+        //currentTarget seria calendar -> <section class="calendario"> (elemento que tiene el listener)
         // target es el elemento exacto donse hizo click, entonces <td> 
         // tagName devuele el nombre de la etiqueta, en este caso: 'TD'
         if (event.target.tagName === 'TD') {
 
             if (event.target.textContent.trim() != '') {
-                const diaSeleccionadoAnterior = document.querySelector('.dia-seleccionado');
+                const previousSelectedDay = document.querySelector('.dia-seleccionado');
 
-                if (diaSeleccionadoAnterior) {
-                    diaSeleccionadoAnterior.classList.remove('dia-seleccionado');
+                if (previousSelectedDay) {
+                    previousSelectedDay.classList.remove('dia-seleccionado');
                 }
 
                 event.target.classList.add('dia-seleccionado');
-                const fecha = document.querySelector(".horarios h3");
-                fecha.textContent = "Horarios — " + event.target.textContent + " de " + mesActual.textContent;
+                const scheduleHeading = document.querySelector(".horarios h3");
+                savedDate = event.target.textContent + " de " + currentMonth.textContent
+                sessionStorage.setItem('date', savedDate);
+                scheduleHeading.textContent = "Horarios — " + savedDate;
             }
         }
     })
+}
+
+const summaryContainer  = document.querySelector('.container-datos div');
+
+if (summaryContainer) {
+    const courtSubtitle = document.createElement('h3');
+    const dateParagraph = document.createElement('p');
+    const slotsParagraph = document.createElement('p');
+
+    courtSubtitle.textContent = sessionStorage.getItem('court') || 'Cancha no seleccionada';
+    dateParagraph.textContent = 'Fecha: ' + (sessionStorage.getItem('date') || 'Sin fecha');
+    const rawSlots = sessionStorage.getItem('slots');
+
+    // Vuelve a convertirlo en lista
+    const slots = rawSlots ? JSON.parse(rawSlots) : [];
+
+    // Se agrega el texto formateado a la variable slotsParagraph
+    slotsParagraph.textContent = 'Horario: ' + (slots.length > 0 ? slots.join(', ') : 'Sin horarios');    
+
+    summaryContainer.appendChild(courtSubtitle);
+    summaryContainer.appendChild(dateParagraph);
+    summaryContainer.appendChild(slotsParagraph);
+
 }
