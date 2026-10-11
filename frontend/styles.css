@@ -10,6 +10,7 @@ main.login, main.datos {
     justify-content: center;
     align-items: center;
     height: 50vh;
+    
 }
 
 
@@ -17,6 +18,8 @@ main.login, main.datos {
     list-style-type: none;
     display: flex;
     gap: 150px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .icono-inicio {
@@ -123,4 +126,24 @@ th {
 
 .dia-seleccionado {
     color: var(--azul);
+}
+@media (max-width: 800px) {
+    .container-tipo-inicio {
+        height: auto;
+        padding: 40px 0;
+    }
+
+    .container-tipo-inicio ul {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .container-tipo-inicio a {
+        padding: 25px;
+    }
+
+    .icono-inicio {
+        width: 150px;
+        height: 150px;
+    }
 }
